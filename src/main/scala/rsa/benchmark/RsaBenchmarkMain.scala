@@ -1,12 +1,14 @@
+package rsa.benchmark
+
 import java.nio.file.{Files, Paths}
 
-object Main extends App {
+object RsaBenchmarkMain /* extends App */ {
 
   val keySize = 16384
   val testPath = "/tmp"
   case class Result(input: Array[Byte] = Array(), encrypt: Array[Byte] = Array(), encryptMs: Long = 0, decrypt: Array[Byte] = Array(), decryptMs: Long = 0)
 
-  val keyPair = Benchmark.generateKeyPair(keySize)
+  val keyPair = BenchmarkUtil.generateKeyPair(keySize)
   val publicKey = keyPair.publicKey
   val privateKey = keyPair.privateKey
 
@@ -30,7 +32,7 @@ object Main extends App {
 
     // create data
     val inputData: Seq[Result] = for (i <- 1 to dataCount) yield {
-      val data = Benchmark.randomAscii(dataSize).getBytes()
+      val data = BenchmarkUtil.randomAscii(dataSize).getBytes()
       Files.write(Paths.get(s"$testPath/${dataName}_input_%04d.txt".format(i)), data)
       Result(input = data)
     }

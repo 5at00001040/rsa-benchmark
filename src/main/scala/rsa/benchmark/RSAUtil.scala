@@ -1,6 +1,8 @@
-import java.security.{KeyFactory, KeyPairGenerator}
+package rsa.benchmark
+
 import java.security.interfaces.{RSAPrivateKey, RSAPublicKey}
 import java.security.spec.{PKCS8EncodedKeySpec, X509EncodedKeySpec}
+import java.security.{KeyFactory, KeyPairGenerator}
 import java.util.Base64
 
 import javax.crypto.Cipher

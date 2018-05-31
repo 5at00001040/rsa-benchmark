@@ -1,6 +1,8 @@
+package rsa.benchmark
+
 import scala.util.Random
 
-object Benchmark {
+object BenchmarkUtil {
 
   def generateKeyPair(keySize: Int) = {
     val keyPair = RSAUtil.generateKeyPair(keySize)
@@ -15,9 +17,6 @@ object Benchmark {
     }
     chars.map(_.toString).mkString
   }
-
-
-  System.currentTimeMillis()
 
 }
 
